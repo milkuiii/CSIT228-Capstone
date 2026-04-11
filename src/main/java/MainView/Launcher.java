@@ -1,9 +1,9 @@
-package com.example.wildkatseye;
+package MainView;
 
 import javafx.application.Application;
 
 public class Launcher{
     public static void main(String[] args) {
-        Application.launch(mainViewApplication.class, args);
+        Application.launch(MainViewApplication.class, args);
     }
 }

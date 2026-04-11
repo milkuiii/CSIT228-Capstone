@@ -57,7 +57,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.wildkatseye/com.example.wildkatseye.mainViewApplication</mainClass>
+                            <mainClass>com.example.wildkatseye/MainView.MainViewApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

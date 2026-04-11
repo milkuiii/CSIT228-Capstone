@@ -1,4 +1,4 @@
-package com.example.wildkatseye;
+package MainView;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,9 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class mainViewApplication extends Application {
+public class MainViewApplication extends Application {
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/wildkatseye/MainView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainView/MainView.fxml"));
         if(loader.getLocation() == null) {
             throw new RuntimeException("Error: Could not find MainView.fxml!");
         }

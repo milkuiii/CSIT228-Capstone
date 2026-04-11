@@ -7,6 +7,9 @@ module com.example.wildkatseye {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.ikonli.materialdesign2;
 
-    opens com.example.wildkatseye to javafx.fxml;
-    exports com.example.wildkatseye;
+    opens MainView to javafx.fxml;
+    exports MainView;
+
+    opens AddExpenseView to javafx.fxml;
+    exports AddExpenseView;
 }

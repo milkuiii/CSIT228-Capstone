@@ -1,4 +1,4 @@
-package com.example.wildkatseye;
+package MainView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,19 +12,17 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
-import java.awt.*;
 
-public class mainViewController {
-
+public class MainViewController {
     @FXML private PieChart pieChart;
     @FXML private BarChart<String, Number> barchart;
     @FXML private VBox transactionContainer;
     @FXML private VBox legendContainer;
     @FXML private Label totalAmountLabel;
 
-    //for bar and pie chart visualization purposesz
     @FXML
     public void initialize() {
+
         ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
                 new PieChart.Data("Food", 450),
                 new PieChart.Data("Rent", 1200),
@@ -33,18 +31,14 @@ public class mainViewController {
         pieChart.setData(pieData);
         pieChart.setLegendVisible(false);
 
-
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        String[] months = {"Jan", "Feb", "Mar", "Apr", "May",  "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-        double[] values = {1200, 1100, 1500, 900, 1300, 1400, 1000, 1600, 1250, 1450, 2000};
+        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        double[] values = {1200, 1100, 1500, 900, 1300, 1400, 1000, 1600, 1250, 1100, 1450, 2000};
+
         for (int i = 0; i < months.length; i++) {
             series.getData().add(new XYChart.Data<>(months[i], values[i]));
         }
         barchart.getData().add(series);
-
-        for(int i = 0; i < months.length; i++){
-            series.getData().add(new XYChart.Data<>(months[i], values[i]));
-        }barchart.getData().add(series);
 
         addTransactionRow("Starbucks", "Food", "Apr 10", "-P250");
         addTransactionRow("Salary", "Income", "Apr 09", "+P25k");
@@ -69,8 +63,9 @@ public class mainViewController {
 
         int i = 0;
         for (PieChart.Data data : pieData) {
-            data.getNode().setStyle("-fx-pie-color: " + colors[i]);
-            addLegendRow(data.getName(), (int)data.getPieValue() + "%", colors[i]);
+            String currentColor = colors[i % colors.length];
+            data.getNode().setStyle("-fx-pie-color: " + currentColor);
+            addLegendRow(data.getName(), (int)data.getPieValue() + "%", currentColor);
             i++;
         }
     }
