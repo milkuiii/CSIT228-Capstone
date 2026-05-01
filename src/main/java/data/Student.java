@@ -1,13 +1,16 @@
 package data;
 
 public class Student {
-    private StudentState state;
+    StudentContext context;
+    boolean canBeHit;
 
-    public void setState(StudentState state){
-        this.state = state;
+    public Student(){
+        canBeHit = false;
+        context = new StudentContext(this);
     }
 
-    public void request(){
-        state.handleRequest();
+    public void stateChange(){
+        // logic should be here for how long the student is vuln
     }
+
 }
